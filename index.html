@@ -9,8 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="./scripts.js"></script>
-
 </head>
 
 <body>
@@ -20,20 +18,20 @@
             Convert <b>from</b>
             <select>
                 <option> R$ Brazilian real </option>
-                <option> US$ American dolar</option>
-                <option> € Euro</option>
+                <!-- <option> US$ American dolar</option> -->
+                <!-- <option> € Euro</option> 
                 <option> £ Pound sterling</option>
-                <option> Biticon</option>
+                <option> Biticon</option>> -->
             </select>
         </label>
         <br>
         <label> Convert <b>to</b>
             <select class="currecies-select">
-                <option value="dolar"> US$ American dolar</option>
-                <option value="euro"> € Euro</option>
-                <option value="pound"> £ Pound sterling</option>
-                <option value="real"> R$ Brazilian real </option>
-                <option value="biticon"> Biticon</option>
+                <option value="usd"> US$ American dolar</option>
+                <option value="eur"> € Euro</option>
+                <!-- <option value="pound"> £ Pound sterling</option>
+                <option value="brl"> R$ Brazilian real </option>
+                <option value="btc"> Biticon</option> -->
             </select>
         </label>
 
@@ -52,11 +50,12 @@
                 <img class="arrow-img" src="assets/arrow.png" alt="seta" />
 
                 <div class="currency-box">
-                    <img src="./assets/usd.png" alt="logo-moeda-convertida" />
-                    <p class="currency"> American dolar</p>
+                    <img class="currency-image" src="./assets/usd.png" alt="logo-moeda-convertida" />
+                    <p class="currency" id="currency-name"> American dolar</p>
                     <p class="value-converted"> US$ 0.0</p>
-                </div>
+                                    </div>
             </section>
     </main>
 </body>
+<script src="./scripts.js"></script>
 </html>
