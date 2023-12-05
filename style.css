@@ -86,6 +86,9 @@ section {
     flex-direction: column;
     align-items: center;
     gap: 4px;
+    color: #555;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .currency {
@@ -93,8 +96,4 @@ section {
     font-size: 18px;
 }
 
-.value-To-Be-Converted, .valueconverted {
-    color: #555;
-    font-size: 20px;
-    font-weight: 700;
-}
+ 
