@@ -69,7 +69,7 @@ button:active {
 
 section {
     border-radius: 20px;
-    border: 1px solid #772FD3;
+    border: 1px solid #2fd33a;
     margin-top: 36px;
     padding: 12px;
     display: flex;
@@ -79,9 +79,10 @@ section {
 
 .arrow-img {
     margin: 15px 0px;
+
 }
 
-.currency-box {
+.currency-box-to-be-converted, .currency-box-converted {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -95,5 +96,3 @@ section {
     color: #777777;
     font-size: 18px;
 }
-
- 
