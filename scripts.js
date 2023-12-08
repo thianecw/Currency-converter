@@ -48,34 +48,36 @@ function convertCurrency() {
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
     const currencyImage = document.querySelector(".currency-image")
-    const currencySymbol = document.getElementsByClassName("input-currency");
+    const inputCurrency = document.querySelector(".input-currency");
 
     if (curreciesSelect.value == "usd") {
-        currencyName.innerHTML = "American dolar"
+        currencyName.innerHTML = "American dollar"
         currencyImage.src = "./assets/usd.png"
-        currencySymbol.placeholder == "$ Amount"        
+        inputCurrency.placeholder = "$";
     }
 
     if (curreciesSelect.value == "eur") {
         currencyName.innerHTML = "Euro"
         currencyImage.src = "./assets/eur.png"
-        currencySymbol.placeholder == "Amount €"
+        inputCurrency.placeholder = "€";
     }
 
     if (curreciesSelect.value == "pound") {
         currencyName.innerHTML = "Pound sterling"
         currencyImage.src = "./assets/pound.png"
-        currencySymbol.placeholder == "£ Amount"
+        inputCurrency.placeholder = "£";
     }
 
     if (curreciesSelect.value == "btc") {
-        currencyName.innerHTML = "Biticoin"
+        currencyName.innerHTML = "Bitcoin"
         currencyImage.src = "./assets/btc.png"
+        inputCurrency.placeholder = "₿";
     }
 
     if (curreciesSelect.value == "brl") {
         currencyName.innerHTML = "Brazilian real"
         currencyImage.src = "./assets/real.png"
+        inputCurrency.placeholder = "R$";
     }
 
     convertCurrency()
@@ -83,3 +85,6 @@ function changeCurrency() {
 
 curreciesSelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertCurrency)
+
+// DEIXAR O SIMBOLO APARECENDO ENQUANTO DIGITA
+// E DEIXAR CASAS DECIMAIS NO INPUT
