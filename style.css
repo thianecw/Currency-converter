@@ -82,7 +82,7 @@ section {
 
 }
 
-.currency-box-to-be-converted, .currency-box-converted {
+.currency-box-to-convert, .currency-box-converted {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -92,7 +92,4 @@ section {
     font-weight: 700;
 }
 
-.currency {
-    color: #777777;
-    font-size: 18px;
-}
+

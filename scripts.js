@@ -1,16 +1,58 @@
 const convertButton = document.querySelector(".convert-button")
 const curreciesSelect = document.querySelector(".currecies-select")
+const currencySelectTop = document.querySelector(".currency-select-top")
+
 
 function convertCurrency() {
     const inputCurrency = document.querySelector(".input-currency").value
-    const valueToBeConverted = document.querySelector(".value-To-Be-Converted")
-    const valueConverted = document.querySelector(".value-converted")
+    const valueToConvert = document.querySelector(".value-To-Convert") //valor pra converter
+    const valueConverted = document.querySelector(".value-converted") //valor já convertido
 
-    const usdToday = 4.96
-    const eurToday = 5.34
-    const poundToday = 6.20
-    const btcToday = 215.205
+    const usdToday = 4.96 // Valor ficticio
+    const eurToday = 5.34 // Valor ficticio
+    const poundToday = 6.20 // Valor ficticio
+    const btcToday = 215.205 // Valor ficticio 
 
+//Valor primeira caixa - EM CONSTRUÇÃO //
+
+if (currencySelectTop.value == "brl-to") {
+    valueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    }).format(inputCurrency)
+}
+
+if (currencySelectTop.value == "usd-to") {
+    valueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+    }).format(inputCurrency)
+}
+
+if (currencySelectTop.value == "eur-to") {
+    valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR"
+    }).format(inputCurrency)
+}
+
+if (currencySelectTop.value == "gbp-to") {
+    valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "GBP"
+    }).format(inputCurrency)
+}
+
+if (currencySelectTop.value == "btc-to") {
+    valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "BTC"
+    }).format(inputCurrency)
+}
+
+}
+
+//Valor segunda caixa - JÁ PRONTO //
     if (curreciesSelect.value == "usd") {
         valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
@@ -39,11 +81,11 @@ function convertCurrency() {
         }).format(inputCurrency / btcToday)
     }
 
-    valueToBeConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+    valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
     }).format(inputCurrency)
-}
+
 
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
@@ -71,7 +113,7 @@ function changeCurrency() {
     if (curreciesSelect.value == "btc") {
         currencyName.innerHTML = "Bitcoin"
         currencyImage.src = "./assets/btc.png"
-        inputCurrency.placeholder = "₿";
+        inputCurrency.placeholder = "Bitcoin Amount";
     }
 
     if (curreciesSelect.value == "brl") {
@@ -79,12 +121,14 @@ function changeCurrency() {
         currencyImage.src = "./assets/real.png"
         inputCurrency.placeholder = "R$";
     }
-
+//Valor segunda caixa
     convertCurrency()
+}
+//EM CONSTRUÇÃO - TROCAR A IMAGEM DAS MOEDAS E O NOME//
+
+function changeCurrencyTop() {
+
 }
 
 curreciesSelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertCurrency)
-
-// DEIXAR O SIMBOLO APARECENDO ENQUANTO DIGITA
-// E DEIXAR CASAS DECIMAIS NO INPUT
