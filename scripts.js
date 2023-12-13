@@ -10,87 +10,99 @@ function convertCurrency() {
 
     const usdToday = 4.96 // Valor ficticio
     const eurToday = 5.34 // Valor ficticio
-    const poundToday = 6.20 // Valor ficticio
-    const btcToday = 215.205 // Valor ficticio 
 
-//Valor primeira caixa - EM CONSTRUÇÃO //
+    //SELETOR TOP - EM CONSTRUÇÃO //
 
-if (currencySelectTop.value == "brl-to") {
-    valueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inputCurrency)
-}
-
-if (currencySelectTop.value == "usd-to") {
-    valueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD"
-    }).format(inputCurrency)
-}
-
-if (currencySelectTop.value == "eur-to") {
-    valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
-        style: "currency",
-        currency: "EUR"
-    }).format(inputCurrency)
-}
-
-if (currencySelectTop.value == "gbp-to") {
-    valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
-        style: "currency",
-        currency: "GBP"
-    }).format(inputCurrency)
-}
-
-if (currencySelectTop.value == "btc-to") {
-    valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
-        style: "currency",
-        currency: "BTC"
-    }).format(inputCurrency)
-}
-
-}
-
-//Valor segunda caixa - JÁ PRONTO //
-    if (curreciesSelect.value == "usd") {
+    //BRL TO USD//
+    if (currencySelectTop.value == "brl-to" && curreciesSelect.value == "usd") {
         valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
         }).format(inputCurrency / usdToday)
     }
 
-    if (curreciesSelect.value == "eur") {
+    //BRL TO EUR//
+    if (currencySelectTop.value == "brl-to" && curreciesSelect.value == "eur") {
         valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
         }).format(inputCurrency / eurToday)
     }
 
-    if (curreciesSelect.value == "pound") {
+    //USD TO BRL//
+    if (currencySelectTop.value == "usd-to" && curreciesSelect.value == "brl") {
+        valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL"
+        }).format(inputCurrency * usdToday)
+    }
+
+    //USD TO EUR//
+    if (currencySelectTop.value == "usd-to" && curreciesSelect.value == "eur") {
         valueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
             style: "currency",
-            currency: "GBP"
-        }).format(inputCurrency / poundToday)
+            currency: "EUR"
+        }).format(inputCurrency / eurToday)
     }
 
-    if (curreciesSelect.value == "btc") {
+    //EUR TO BRL//
+    if (currencySelectTop.value == "eur-to" && curreciesSelect.value == "brl") {
         valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
-            currency: "BTC"
-        }).format(inputCurrency / btcToday)
+            currency: "EUR"
+        }).format(inputCurrency * eurToday)
     }
 
-    valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL"
-    }).format(inputCurrency)
+    //EUR TO USD//
+    if (currencySelectTop.value == "eur-to" && curreciesSelect.value == "usd") {
+        valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD"
+        }).format(inputCurrency * usdToday)
+    }
 
+    //SEGUNDO SELECT //
+
+    function formatCurrency() {
+
+//MUDAR O FORMATO DOS NÚMEROS CONVERTIDOS//
+        if (currencySelectTop.value == "usd-to") {
+            valueToConvert.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+            }).format(inputCurrency)
+
+     } else if (curreciesSelect.value == "brl-to") { 
+            valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            }).format(inputCurrency)
+
+         } else if (curreciesSelect.value == "eur-to") {
+                valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+                    style: "currency",
+                    currency: "EUR",
+                }).format(inputCurrency)
+            }
+}
+formatCurrency ()
+}
 
 function changeCurrency() {
-    const currencyName = document.getElementById("currency-name")
-    const currencyImage = document.querySelector(".currency-image")
-    const inputCurrency = document.querySelector(".input-currency");
+    const currencyName = document.getElementById("currency-name") //SEGUNDO SELECT//
+    const currencyImage = document.querySelector(".currency-image") //SEGUNDO SELECT//
+    const inputCurrency = document.querySelector(".input-currency") //SÍMBOLO MOEDA NO PLACE HOLDER//
+    const currencyNameTop = document.querySelector(".currency-Top") //PRIMEIRO SELECT//
+    const currencyImageTop = document.querySelector(".currency-image-top") //PRIMEIRO SELECT//
+
+    //MUDANÇA DE IMAGEM, NOME, PLACE HOLDER SIMBOLO //
+
+    //USD//
+    if (currencySelectTop.value == "usd-to") {
+        currencyNameTop.innerHTML = "American dollar"
+        currencyImageTop.src = "./assets/usd.png"
+        inputCurrency.placeholder = "$";
+    }
 
     if (curreciesSelect.value == "usd") {
         currencyName.innerHTML = "American dollar"
@@ -98,22 +110,11 @@ function changeCurrency() {
         inputCurrency.placeholder = "$";
     }
 
-    if (curreciesSelect.value == "eur") {
-        currencyName.innerHTML = "Euro"
-        currencyImage.src = "./assets/eur.png"
-        inputCurrency.placeholder = "€";
-    }
-
-    if (curreciesSelect.value == "pound") {
-        currencyName.innerHTML = "Pound sterling"
-        currencyImage.src = "./assets/pound.png"
-        inputCurrency.placeholder = "£";
-    }
-
-    if (curreciesSelect.value == "btc") {
-        currencyName.innerHTML = "Bitcoin"
-        currencyImage.src = "./assets/btc.png"
-        inputCurrency.placeholder = "Bitcoin Amount";
+    //BRL//
+    if (currencySelectTop.value == "brl-to") {
+        currencyNameTop.innerHTML = "Brazilian Real"
+        currencyImageTop.src = "./assets/real.png"
+        inputCurrency.placeholder = "R$";//
     }
 
     if (curreciesSelect.value == "brl") {
@@ -121,14 +122,22 @@ function changeCurrency() {
         currencyImage.src = "./assets/real.png"
         inputCurrency.placeholder = "R$";
     }
-//Valor segunda caixa
-    convertCurrency()
-}
-//EM CONSTRUÇÃO - TROCAR A IMAGEM DAS MOEDAS E O NOME//
 
-function changeCurrencyTop() {
+//EUR//
+    if (currencySelectTop.value == "eur-to") {
+        currencyNameTop.innerHTML = "Euro"
+        currencyImageTop.src = "./assets/eur.png"
+        inputCurrency.placeholder = "€";
+    }
 
-}
+        if (curreciesSelect.value == "eur") {
+        currencyName.innerHTML = "Euro"
+        currencyImage.src = "./assets/eur.png"
+        inputCurrency.placeholder = "€";
+    }
 
+    }
+
+currencySelectTop.addEventListener("change", changeCurrency)
 curreciesSelect.addEventListener("change", changeCurrency)
 convertButton.addEventListener("click", convertCurrency)
