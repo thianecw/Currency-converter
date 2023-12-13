@@ -6,15 +6,12 @@
     outline: none;
 }
 
-body {
-    background-color: #8A51FC;
-    ;
-}
-
-.logo {
-    width: 200px;
-    display: block;
-    margin: 20px auto;
+.background-image {
+ position: fixed;
+ top: 0;
+ z-index: -1;
+ min-height: 100%;
+ min-width: 100%;
 }
 
 main {
@@ -49,7 +46,7 @@ input {
 
 button {
     border-radius: 5px;
-    background: #772FD3;
+    background: #11057a;
     width: 100%;
     border: none;
     height: 48px;
@@ -69,7 +66,7 @@ button:active {
 
 section {
     border-radius: 20px;
-    border: 1px solid #2fd33a;
+    border: 1px solid #2231b3;
     margin-top: 36px;
     padding: 12px;
     display: flex;
@@ -92,4 +89,32 @@ section {
     font-weight: 700;
 }
 
+@media screen and (max-width: 750px) {
 
+main {
+height: 75%;
+padding: 12px;
+}
+
+select, input {
+margin-bottom: 12px;
+}
+
+section {
+height: auto;
+padding: 8px;
+display: inline-block;
+}
+
+.arrow-img {
+    height: auto;
+    rotate: 270deg;
+}
+
+.currency-box-to-convert, .currency-box-converted {
+    display: inline-block;
+    margin: 15px 10px;
+    text-align: center;
+}
+
+}
