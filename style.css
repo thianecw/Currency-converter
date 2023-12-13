@@ -24,7 +24,7 @@ main {
 
 label {
     color: #777;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
 }
 
@@ -93,7 +93,8 @@ section {
 
 main {
 height: 75%;
-padding: 12px;
+padding: 15px;
+margin-top: 100px;
 }
 
 select, input {
@@ -103,12 +104,7 @@ margin-bottom: 12px;
 section {
 height: auto;
 padding: 8px;
-display: inline-block;
-}
-
-.arrow-img {
-    height: auto;
-    rotate: 270deg;
+display: flex;
 }
 
 .currency-box-to-convert, .currency-box-converted {

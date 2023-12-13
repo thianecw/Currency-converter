@@ -10,8 +10,8 @@ function convertCurrency() {
     const usdToday = 4.96; // Valor ficticio
     const eurToday = 5.34; // Valor ficticio
     const usdandeur = 1.08; // diferença entre o USD e EUR pra conversão entre eles
-
-    // SELETOR TOP - EM CONSTRUÇÃO //
+ 
+//CONVERSÃO//
 
     // BRL TO USD //
     if (currencySelectTop.value == "brl-to" && curreciesSelect.value == "usd") {
@@ -61,6 +61,30 @@ function convertCurrency() {
         }).format(inputCurrency * usdandeur);
     }
 
+    // BRL TO BLR //
+    if (currencySelectTop.value == "brl-to" && curreciesSelect.value == "brl") {
+        valueConverted.innerHTML = new Intl.NumberFormat("br-PT", {
+            style: "currency",
+            currency: "BRL",
+        }).format(inputCurrency);
+    }
+
+ // USD TO USD //
+ if (currencySelectTop.value == "usd-to" && curreciesSelect.value == "usd") {
+    valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    }).format(inputCurrency);
+}
+
+ // EUR TO EUR //
+ if (currencySelectTop.value == "eur-to" && curreciesSelect.value == "eur") {
+    valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+        style: "currency",
+        currency: "EUR",
+    }).format(inputCurrency);
+}
+
     function formatCurrency() {
         // MUDAR O FORMATO DOS NÚMEROS CONVERTIDOS //
 
@@ -69,19 +93,18 @@ function convertCurrency() {
                 style: "currency",
                 currency: "USD",
             }).format(inputCurrency);
-        } else if (curreciesSelect.value == "brl-to") {
+        } else if (currencySelectTop.value == "brl-to") {
             valueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
                 style: "currency",
                 currency: "BRL",
             }).format(inputCurrency);
-        } else if (curreciesSelect.value == "eur-to") {
+        } else if (currencySelectTop.value == "eur-to") {
             valueToConvert.innerHTML = new Intl.NumberFormat("de-DE", {
                 style: "currency",
                 currency: "EUR",
             }).format(inputCurrency);
         }
     }
-
     formatCurrency();
 }
 
