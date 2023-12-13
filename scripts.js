@@ -10,6 +10,7 @@ function convertCurrency() {
 
     const usdToday = 4.96 // Valor ficticio
     const eurToday = 5.34 // Valor ficticio
+const usdandeur = 1.08
 
     //SELETOR TOP - EM CONSTRUÇÃO //
 
@@ -42,7 +43,7 @@ function convertCurrency() {
         valueConverted.innerHTML = new Intl.NumberFormat("en-UK", {
             style: "currency",
             currency: "EUR"
-        }).format(inputCurrency / eurToday)
+        }).format(inputCurrency / usdandeur)
     }
 
     //EUR TO BRL//
@@ -58,7 +59,7 @@ function convertCurrency() {
         valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD"
-        }).format(inputCurrency * usdToday)
+        }).format(inputCurrency * usdandeur)
     }
 
     //SEGUNDO SELECT //
