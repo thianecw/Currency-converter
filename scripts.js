@@ -2,15 +2,19 @@ const convertButton = document.querySelector(".convert-button");
 const curreciesSelect = document.querySelector(".currecies-select");
 const currencySelectTop = document.querySelector(".currency-select-top");
 
-function convertCurrency() {
+const convertCurrency = async () => {
     const inputCurrency = document.querySelector(".input-currency").value;
     const valueToConvert = document.querySelector(".value-To-Convert"); // valor pra converter
     const valueConverted = document.querySelector(".value-converted"); // valor já convertido
 
-    const usdToday = 4.96; // Valor ficticio
-    const eurToday = 5.34; // Valor ficticio
-    const usdandeur = 1.08; // diferença entre o USD e EUR pra conversão entre eles
- 
+    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,BTC-BRL").then(response => response.json())
+console.log(data)
+
+    const usdToday = data.USDBRL.high
+    const eurToday = data.EURBRL.high
+    const usdtoeur = data.USDEUR.high
+    const eurtousd = data.EURUSD.high
+
 //CONVERSÃO//
 
     // BRL TO USD //
@@ -42,7 +46,7 @@ function convertCurrency() {
         valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR",
-        }).format(inputCurrency / usdandeur);
+        }).format(inputCurrency / usdtoeur);
     }
 
     // EUR TO BRL //
@@ -58,7 +62,7 @@ function convertCurrency() {
         valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
             style: "currency",
             currency: "USD",
-        }).format(inputCurrency * usdandeur);
+        }).format(inputCurrency * eurtousd);
     }
 
     // BRL TO BLR //
