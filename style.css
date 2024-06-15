@@ -6,20 +6,36 @@
     outline: none;
 }
 
+body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+font-size: 30px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 20px;
+
+}
+
 .background-image {
- position: fixed;
- top: 0;
- z-index: -1;
- min-height: 100%;
- min-width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+    min-height: 100%;
+    min-width: 100%;
 }
 
 main {
     width: 375px;
-    border-radius: 20px;
+    border-radius: 15px;
     background: #F4F4F4;
-    margin: 0px auto 40px;
-    padding: 44px 24px 23px;
+    padding: 15px 15px 15px;
+    opacity: 0.88;
 }
 
 label {
@@ -30,7 +46,7 @@ label {
 
 select,
 input {
-    border-radius: 4px;
+    border-radius: 50px;
     border: 1px solid #BBB;
     background: #FFF;
     height: 45px;
@@ -42,11 +58,16 @@ input {
     font-weight: 700;
     color: #555;
     cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
 }
 
+
 button {
-    border-radius: 5px;
-    background: #11057a;
+    border-radius: 50px;
+    background: #394740;
     width: 100%;
     border: none;
     height: 48px;
@@ -66,51 +87,65 @@ button:active {
 
 section {
     border-radius: 20px;
-    border: 1px solid #2231b3;
-    margin-top: 36px;
-    padding: 12px;
+    border: 1.5px solid #394740;
+    margin-top: 20px;
+    padding: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 15px;
 }
 
-.arrow-img {
-    margin: 15px 0px;
-
-}
-
-.currency-box-to-convert, .currency-box-converted {
+.currency-box-to-convert,
+.currency-box-converted {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
     color: #555;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+.arrow-img {
+height: 38px;
+width: 35px;
+transform: rotate(90deg); /* Equal to rotateZ(45deg) */
 }
 
 @media screen and (max-width: 750px) {
 
-main {
-height: 75%;
-padding: 15px;
-margin-top: 100px;
-}
+    h1 {
+        font-size: 25px;
+    }
+    
+    main {
+        width: 90%;
+        height: auto;
+        padding: 10px;
+    }
 
-select, input {
-margin-bottom: 12px;
-}
+    select,
+    input {
+        margin-bottom: 12px;
+    }
 
-section {
-height: auto;
-padding: 8px;
-display: flex;
-}
+    section {
+        height: auto;
+        padding: 8px;
+        display: flex;
+        gap: 0;
+            }
 
-.currency-box-to-convert, .currency-box-converted {
-    display: inline-block;
-    margin: 15px 10px;
-    text-align: center;
-}
+    .currency-box-to-convert,
+    .currency-box-converted {
+        display: inline-block;
+        margin: 8px 10px;
+        text-align: center;
+    }
 
 }
