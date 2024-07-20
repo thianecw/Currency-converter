@@ -2,6 +2,8 @@ const convertButton = document.querySelector(".convert-button");
 const currenciesSelect = document.querySelector(".currencies-select");
 const currencySelectTop = document.querySelector(".currency-select-top");
 const alertMessage = document.getElementById("alert-message");
+const inputCurrency = document.querySelector(".input-currency");
+
 
 const convertCurrency = async () => {
     const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
@@ -152,9 +154,16 @@ const changeCurrency = () => {
         inputCurrency.placeholder = "£";
     }
 
-
 }
 
 currencySelectTop.addEventListener("change", changeCurrency);
 currenciesSelect.addEventListener("change", changeCurrency);
 convertButton.addEventListener("click", convertCurrency);
+
+
+inputCurrency.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        convertCurrency();
+    }
+});

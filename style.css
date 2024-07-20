@@ -18,8 +18,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: right;
-
-
 }
 
 main {
@@ -50,7 +48,6 @@ h1 {
     font-weight: 700;
     font-family: "Roboto Condensed", sans-serif;
     text-transform: uppercase;
-
 }
 
 label {
@@ -162,34 +159,70 @@ footer a:active {
     text-align: center;
 }
 
-@media screen and (max-width: 750px) {
+
+@media screen and (max-width: 1190px) {
+    body {
+        background-position: 70% 50%;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .container-left h2 {
+        font-size: 25px;
+        letter-spacing: 2px;
+        padding: 10px;
+        font-weight: 100;
+    }
 
     h1 {
-        font-size: 25px;
+        font-size: 30px;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    body {
+        background-image: none;
+        flex-direction: column;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .title {
+        text-align: center;
     }
 
     main {
-        width: 90%;
-        height: auto;
-        padding: 10px;
+        margin-bottom: 50px;
+    }
+
+    .container-left h2 {
+     display: none;
     }
 
     select,
     input {
-        margin-bottom: 12px;
+        margin-bottom: 14px;
     }
 
     section {
-        height: auto;
-        padding: 8px;
         display: flex;
         gap: 0;
+    }
+
+    .result {
+        padding: 0px;
     }
 
     .currency-box-to-convert,
     .currency-box-converted {
         display: inline-block;
-        margin: 8px 10px;
+        padding: 0;
+        margin: 10px 10px;
         text-align: center;
+        
     }
 }
