@@ -4,55 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency Converter    </title>
+    <title>Currency Converter </title>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <img class=background-image src="https://png.pngtree.com/background/20231101/original/pngtree-d-illustration-of-finance-and-banking-with-dollar-currency-and-technology-picture-image_5823079.jpg" alt="wallpaper" />
-    <main>
-        <h1> Currency Converter     </h1>
-        <label>
-            Convert <b>FROM</b>
+    <div class="container-left">
+        <h2> Do it <span> Faster.</span> </h2>
+        <h2> Do it <span> Easier.</span> </h2>
+        <h2> Simply <span> Trustable.</span> </h2>
+    </div>
+
+
+    <div class="container=rigth">
+        <h1 class="title"> Currency Convert </h1>
+
+        <main>
+
+            <label> Convert FROM </label>
             <select class="currency-select-top">
                 <option value="brl-to"> R$ Brazilian real </option>
                 <option value="usd-to"> US$ American dolar</option>
                 <option value="eur-to"> € Euro</option>
+                <option value="gbp-to"> £ Pound Sterling</option>
+                <option value="btc-to"> ₿ Bitcoin</option>
             </select>
-        </label>
-        <br>
-        <label> Convert <b>TO</b>
-            <select class="currecies-select">
+
+            <label> Convert TO </label>
+            <select class="currencies-select">
                 <option value="usd"> US$ American dolar</option>
                 <option value="brl"> R$ Brazilian real </option>
                 <option value="eur"> € Euro</option>
+                <option value="gbp"> £ Pound Sterling</option>
+                <option value="btc"> ₿ Bitcoin </option>
             </select>
-        </label>
 
-        <label> <b> Amount</b>
-            <input class="input-currency" placeholder="1.000,00">
+            <label> Amount </label>
+            <input class="input-currency" placeholder="100">
             <button class="convert-button">Convert</button>
+            <div class="alert-message" id="alert-message">Please enter a valid amount.</div>
+
             <section>
-        </label>
+                <div class="result">
 
-        <div class="currency-box-to-convert">
-            <img class="currency-image-top" src="./assets/real.png" alt="logo-moeda-a-converter" />
-            <p class="currency-Top"> Brazilian real</p>
-            <p class="value-To-Convert"> R$ 0,00</p>
-        </div>
+                    <div class="currency-box-to-convert">
+                        <img class="currency-image-top" src="./assets/real.png" alt="logo-moeda-a-converter" />
+                        <p class="currency-Top"> Brazilian real</p>
+                        <p class="value-To-Convert"> R$ 0,00</p>
+                    </div>
 
-        <img class="arrow-img" src="./assets/arrow.png" alt="arrow" />
+                    <span class="arrow">⇄</span>
 
-        <div class="currency-box-converted">
-            <img class="currency-image" src="./assets/usd.png" alt="logo-moeda-convertida" />
-            <p class="currency" id="currency-name"> American dolar</p>
-            <p class="value-converted"> US $ 0.0</p>
-        </div>
-        </section>
-    </main>
+                    <div class="currency-box-converted">
+                        <img class="currency-image" src="./assets/usd.png" alt="logo-moeda-convertida" />
+                        <p class="currency" id="currency-name"> American dolar</p>
+                        <p class="value-converted"> US $ 0.0</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="footer">
+        <footer>
+            <h2> Copyright &copy; 2024 - Desenvolvido por <a href="https://www.linkedin.com/in/thiane-wosniak"
+                    target="_blank"> Thiane Wosniak </a>
+            </h2>
+
+            <h2> Contato:
+                <a href="https://www.linkedin.com/in/thiane-wosniak" target="_blank" title="LinkedIn"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.github.com/thianece" target="_blank" title="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://wa.link/ej4rzv" target="_blank" title="WhatsApp"><i
+                        class="fa-brands fa-whatsapp"></i></a>
+            </h2>
+        </footer>
+
+    </div>
+
 </body>
 <script src="./scripts.js"></script>
 
