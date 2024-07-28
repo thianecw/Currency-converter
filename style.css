@@ -15,18 +15,18 @@ body {
     margin: 0 50px;
     background-image: url(./assets/coin-bg.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     background-position: right;
+    background-attachment: fixed;
 }
 
 main {
     width: 350px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgba(255, 252, 252, 0.9); ;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
+    margin-left: 18px;
 }
 
 .main-container {
@@ -70,7 +70,7 @@ select,
 input {
     width: 100%;
     padding: 8px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
     font-size: 16px;
 }
@@ -181,6 +181,10 @@ footer a:active {
     body {
         background-position: 70% 50%;
     }
+
+    .container-left h2 {
+        font-size: 25px;
+    }
 }
 
 @media screen and (max-width: 950px) {
@@ -190,7 +194,17 @@ footer a:active {
     }
 
     .container-left h2 {
+        font-size: 25px;
+    }
+
+    h1 {
         font-size: 30px;
+        display: flex;
+        justify-content: center;
+    }
+
+    main {
+        margin-left: 0;
     }
 }
 
@@ -224,9 +238,8 @@ footer a:active {
 @media screen and (max-width: 680px) {
 
     body {
-        background-image: url(./assets/coin-mobile.png);
         background-repeat: no-repeat;
-        background-size: 70%;
+        background-size: 80%;
         background-position: left;
         flex-direction: column;
         justify-content: center;
@@ -237,12 +250,16 @@ footer a:active {
         flex-direction: column-reverse;
     }
 
+    .container-left {
+        display: none;
+    }
+
     .title {
         text-align: center;
     }
 
     main {
-        margin-bottom: 20px;
+        margin-left: 0px;
     }
 
     select,
@@ -259,27 +276,14 @@ footer a:active {
 
     section p {
         display: flex;
-        padding: 2px;
+        margin-bottom: 4px;
     }
 
     .currency-box-to-convert,
     .currency-box-converted {
         padding: 0;
         margin: 5px 5px;
-    }
-
-    .container-left {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 100px;
-        margin-top: 20px;
         text-align: center;
-        margin: 50px 0 50px 0;
     }
-
-
-
-
 }

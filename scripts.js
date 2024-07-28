@@ -212,6 +212,7 @@ const changeCurrency = () => {
         valueConverted.innerHTML = "₿ 0.00";
     }
 
+    convertCurrency()
 }
 
 currencySelectTop.addEventListener("change", changeCurrency);
@@ -225,3 +226,4 @@ inputCurrency.addEventListener('keypress', (event) => {
         convertCurrency();
     }
 });
+
