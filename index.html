@@ -14,22 +14,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
+
 </head>
 
 <body>
+    <div class="main-container">
     <div class="container-left">
         <h2> Do it <span> Faster.</span> </h2>
         <h2> Do it <span> Easier.</span> </h2>
         <h2> Real time <span> Update.</span> </h2>
     </div>
 
-
     <div class="container=rigth">
         <h1 class="title"> Currency Convert </h1>
-
         <main>
-
             <label> Convert FROM </label>
             <select class="currency-select-top">
                 <option value="brl-to"> R$ Brazilian real </option>
@@ -48,8 +46,7 @@
                 <option value="btc"> ₿ Bitcoin </option>
             </select>
 
-            <label> Amount </label>
-            <input type="number" class="input-currency" placeholder="100">
+            <input type="number" class="input-currency" placeholder="R$">
             <button class="convert-button">Convert</button>
             <div class="alert-message" id="alert-message">Please enter a valid amount.</div>
 
@@ -66,12 +63,13 @@
                     <div class="currency-box-converted">
                         <img class="currency-image" src="./assets/usd.png" alt="logo-moeda-convertida" />
                         <p class="currency" id="currency-name"> American dolar</p>
-                        <p class="value-converted"> US $ 0.0</p>
+                        <p class="value-converted"> US$ 0.0</p>
                     </div>
                 </div>
             </section>
         </main>
     </div>
+</div>
 
     <div class="footer">
         <footer>
