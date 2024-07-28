@@ -75,6 +75,16 @@ input {
     font-size: 16px;
 }
 
+.input-currency::-webkit-outer-spin-button,
+.input-currency::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.input-currency {
+    -moz-appearance: textfield;
+}
+
 button {
     width: 100%;
     padding: 10px;
