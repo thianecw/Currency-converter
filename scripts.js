@@ -5,10 +5,8 @@ const alertMessage = document.getElementById("alert-message");
 const inputCurrency = document.querySelector(".input-currency");
 
 
-const convertCurrency = async () => {
+convertButton.addEventListener("click", () => {
     const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
-    const valueToConvert = document.querySelector(".value-To-Convert");
-    const valueConverted = document.querySelector(".value-converted");
 
     if (isNaN(inputCurrency) || inputCurrency <= 0) {
         alertMessage.style.display = 'block'; // Mostrar o aviso
@@ -16,6 +14,12 @@ const convertCurrency = async () => {
     } else {
         alertMessage.style.display = 'none'; // Esconder o aviso
     }
+});
+
+const convertCurrency = async () => {
+    const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
+    const valueConverted = document.querySelector(".value-converted");
+    
 
     const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,BRL-USD,EUR-BRL,BRL-EUR,EUR-USD,USD-EUR,BRL-GBP,GBP-BRL,USD-GBP,GBP-USD,EUR-GBP,GBP-EUR")
         .then(response => response.json());
@@ -88,6 +92,26 @@ const convertCurrency = async () => {
             currency: "GBP",
         }).format(inputCurrency * eurtogbp);
 
+           //GBP TO BRL, USD, EUR //
+
+    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "brl") {
+        valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+        }).format(inputCurrency * gbpToday);
+
+    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "usd") {
+        valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+        }).format(inputCurrency * gbptousd);
+
+    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "eur") {
+        valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+            style: "currency",
+            currency: "EUR",
+        }).format(inputCurrency * gbptoeur);
+
         //MOEDAS ENTRE SI MESMO //
 
     } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "brl") {
@@ -139,10 +163,7 @@ const formatCurrency = (inputCurrency) => {
             style: "currency",
             currency: "GBP",
         }).format(inputCurrency);
-        // } else if (currencySelectTop.value == "btc-to") {
-        //     const btcValue = Number(inputCurrency).toFixed(8); // Bitcoin typically uses 8 decimal places
-        //     valueToConvert.innerHTML = `₿ ${btcValue}`;
-    }
+        }
 }
 
 const changeCurrency = () => {
@@ -215,6 +236,19 @@ const changeCurrency = () => {
     convertCurrency()
 }
 
+
+// convertButton.addEventListener("click", () => {
+//     const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
+
+//     if (isNaN(inputCurrency) || inputCurrency <= 0) {
+//         alertMessage.style.display = 'block';
+//         return;
+//     } else {
+//         alertMessage.style.display = 'none';
+//         convertCurrency(inputCurrency);
+//     }
+// });
+
 currencySelectTop.addEventListener("change", changeCurrency);
 currenciesSelect.addEventListener("change", changeCurrency);
 convertButton.addEventListener("click", convertCurrency);
@@ -225,5 +259,4 @@ inputCurrency.addEventListener('keypress', (event) => {
         event.preventDefault();
         convertCurrency();
     }
-});
-
+})
