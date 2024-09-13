@@ -22,7 +22,8 @@ body {
 main {
     width: 350px;
     padding: 20px;
-    background-color: rgba(255, 252, 252, 0.9); ;
+    background-color: rgba(255, 252, 252, 0.9);
+    ;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
     display: flex;
     flex-direction: column;
@@ -73,7 +74,7 @@ input {
     margin-bottom: 20px;
     border: 1px solid #ddd;
     font-size: 16px;
-}
+    }
 
 .input-currency::-webkit-outer-spin-button,
 .input-currency::-webkit-inner-spin-button {
@@ -239,7 +240,7 @@ footer a:active {
 
     body {
         background-repeat: no-repeat;
-        background-size: 80%;
+        background-size: 100%;
         background-position: left;
         flex-direction: column;
         justify-content: center;
@@ -248,6 +249,7 @@ footer a:active {
     .main-container {
         display: flex;
         flex-direction: column-reverse;
+        margin-top: -100px;
     }
 
     .container-left {

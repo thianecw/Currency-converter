@@ -10,10 +10,11 @@ convertButton.addEventListener("click", () => {
 
     if (isNaN(inputCurrency) || inputCurrency <= 0) {
         alertMessage.style.display = 'block'; // Mostrar o aviso
-        return;
-    } else {
-        alertMessage.style.display = 'none'; // Esconder o aviso
-    }
+                valueConverted.innerHTML = '';
+        return;  
+        } else {
+         alertMessage.style.display = 'none'; // Esconder o aviso
+        }
 });
 
 const convertCurrency = async () => {
