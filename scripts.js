@@ -5,139 +5,149 @@ const alertMessage = document.getElementById("alert-message");
 const inputCurrency = document.querySelector(".input-currency");
 
 
-convertButton.addEventListener("click", () => {
-    const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
+// convertButton.addEventListener("click", () => {
 
-    if (isNaN(inputCurrency) || inputCurrency <= 0) {
-        alertMessage.style.display = 'block'; // Mostrar o aviso
-                valueConverted.innerHTML = '';
-        return;  
-        } else {
-         alertMessage.style.display = 'none'; // Esconder o aviso
-        }
-});
+//     // if (isNaN(inputCurrency) || inputCurrency <= 0) {
+//     //     alertMessage.style.display = 'block'; // Mostrar o aviso
+//     //     return;  
+//     //     } else {
+//     //      alertMessage.style.display = 'none'; // Esconder o aviso
+//     //     }
+// });
 
 const convertCurrency = async () => {
-    const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
+    const inputValue = document.querySelector(".input-currency").value;
     const valueConverted = document.querySelector(".value-converted");
-    
+    const valueToConvert = document.querySelector(".value-To-Convert");
 
-    const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,BRL-USD,EUR-BRL,BRL-EUR,EUR-USD,USD-EUR,BRL-GBP,GBP-BRL,USD-GBP,GBP-USD,EUR-GBP,GBP-EUR")
-        .then(response => response.json());
+    if (inputValue === NaN || inputValue === "") {
+        alertMessage.style.display = 'block'; // Mostrar o aviso
+        valueConverted.innerHTML = '';
+        valueToConvert.innerHTML = '';
+        return;
+    } else {
+        alertMessage.style.display = 'none'; // Esconder o aviso
 
-    const usdToday = parseFloat(data.USDBRL.high);
-    const eurToday = parseFloat(data.EURBRL.high);
-    const gbpToday = parseFloat(data.GBPBRL.high);
-    const usdtoeur = parseFloat(data.USDEUR.high);
-    const usdtogbp = parseFloat(data.USDGBP.high);
-    const eurtousd = parseFloat(data.EURUSD.high);
-    const eurtogbp = parseFloat(data.EURGBP.high);
-    const gbptousd = parseFloat(data.GBPUSD.high);
-    const gbptoeur = parseFloat(data.GBPEUR.high);
+        const inputCurrency = parseFloat(document.querySelector(".input-currency").value);
 
-    //BRL TO USD, EUR, GBP //
 
-    if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "usd") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-        }).format(inputCurrency / usdToday);
-    } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "eur") {
-        valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR",
-        }).format(inputCurrency / eurToday);
-    } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "gbp") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-        }).format(inputCurrency / gbpToday);
+        const data = await fetch("https://economia.awesomeapi.com.br/last/USD-BRL,BRL-USD,EUR-BRL,BRL-EUR,EUR-USD,USD-EUR,BRL-GBP,GBP-BRL,USD-GBP,GBP-USD,EUR-GBP,GBP-EUR")
+            .then(response => response.json());
 
-        //USD TO BRL, EUR, GBP //
+        const usdToday = parseFloat(data.USDBRL.high);
+        const eurToday = parseFloat(data.EURBRL.high);
+        const gbpToday = parseFloat(data.GBPBRL.high);
+        const usdtoeur = parseFloat(data.USDEUR.high);
+        const usdtogbp = parseFloat(data.USDGBP.high);
+        const eurtousd = parseFloat(data.EURUSD.high);
+        const eurtogbp = parseFloat(data.EURGBP.high);
+        const gbptousd = parseFloat(data.GBPUSD.high);
+        const gbptoeur = parseFloat(data.GBPEUR.high);
 
-    } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "brl") {
-        valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        }).format(inputCurrency * usdToday);
+        //BRL TO USD, EUR, GBP //
 
-    } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "gbp") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-        }).format(inputCurrency * usdtogbp);
+        if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "usd") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+            }).format(inputCurrency / usdToday);
+        } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "eur") {
+            valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "EUR",
+            }).format(inputCurrency / eurToday);
+        } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "gbp") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+                style: "currency",
+                currency: "GBP",
+            }).format(inputCurrency / gbpToday);
 
-    } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "eur") {
-        valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR",
-        }).format(inputCurrency * usdtoeur);
+            //USD TO BRL, EUR, GBP //
 
-        //EUR TO BRL, USD, GBP //
+        } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "brl") {
+            valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            }).format(inputCurrency * usdToday);
 
-    } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "brl") {
-        valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        }).format(inputCurrency * eurToday);
+        } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "gbp") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+                style: "currency",
+                currency: "GBP",
+            }).format(inputCurrency * usdtogbp);
 
-    } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "usd") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-        }).format(inputCurrency * eurtousd);
+        } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "eur") {
+            valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "EUR",
+            }).format(inputCurrency * usdtoeur);
 
-    } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "gbp") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-        }).format(inputCurrency * eurtogbp);
+            //EUR TO BRL, USD, GBP //
 
-           //GBP TO BRL, USD, EUR //
+        } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "brl") {
+            valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            }).format(inputCurrency * eurToday);
 
-    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "brl") {
-        valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        }).format(inputCurrency * gbpToday);
+        } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "usd") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+            }).format(inputCurrency * eurtousd);
 
-    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "usd") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-        }).format(inputCurrency * gbptousd);
+        } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "gbp") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+                style: "currency",
+                currency: "GBP",
+            }).format(inputCurrency * eurtogbp);
 
-    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "eur") {
-        valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR",
-        }).format(inputCurrency * gbptoeur);
+            //GBP TO BRL, USD, EUR //
 
-        //MOEDAS ENTRE SI MESMO //
+        } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "brl") {
+            valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            }).format(inputCurrency * gbpToday);
 
-    } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "brl") {
-        valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        }).format(inputCurrency);
-    } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "usd") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-        }).format(inputCurrency);
-    } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "eur") {
-        valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
-            style: "currency",
-            currency: "EUR",
-        }).format(inputCurrency);
-    } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "gbp") {
-        valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
-            style: "currency",
-            currency: "GBP",
-        }).format(inputCurrency);
+        } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "usd") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+            }).format(inputCurrency * gbptousd);
+
+        } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "eur") {
+            valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "EUR",
+            }).format(inputCurrency * gbptoeur);
+
+            //MOEDAS ENTRE SI MESMO //
+
+        } else if (currencySelectTop.value == "brl-to" && currenciesSelect.value == "brl") {
+            valueConverted.innerHTML = new Intl.NumberFormat("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+            }).format(inputCurrency);
+        } else if (currencySelectTop.value == "usd-to" && currenciesSelect.value == "usd") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-US", {
+                style: "currency",
+                currency: "USD",
+            }).format(inputCurrency);
+        } else if (currencySelectTop.value == "eur-to" && currenciesSelect.value == "eur") {
+            valueConverted.innerHTML = new Intl.NumberFormat("de-DE", {
+                style: "currency",
+                currency: "EUR",
+            }).format(inputCurrency);
+        } else if (currencySelectTop.value == "gbp-to" && currenciesSelect.value == "gbp") {
+            valueConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+                style: "currency",
+                currency: "GBP",
+            }).format(inputCurrency);
+        }
+
+        formatCurrency(inputCurrency);
     }
-
-    formatCurrency(inputCurrency);
 }
 
 const formatCurrency = (inputCurrency) => {
@@ -164,7 +174,7 @@ const formatCurrency = (inputCurrency) => {
             style: "currency",
             currency: "GBP",
         }).format(inputCurrency);
-        }
+    }
 }
 
 const changeCurrency = () => {
