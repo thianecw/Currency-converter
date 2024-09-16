@@ -4,17 +4,6 @@ const currencySelectTop = document.querySelector(".currency-select-top");
 const alertMessage = document.getElementById("alert-message");
 const inputCurrency = document.querySelector(".input-currency");
 
-
-// convertButton.addEventListener("click", () => {
-
-//     // if (isNaN(inputCurrency) || inputCurrency <= 0) {
-//     //     alertMessage.style.display = 'block'; // Mostrar o aviso
-//     //     return;  
-//     //     } else {
-//     //      alertMessage.style.display = 'none'; // Esconder o aviso
-//     //     }
-// });
-
 const convertCurrency = async () => {
     const inputValue = document.querySelector(".input-currency").value;
     const valueConverted = document.querySelector(".value-converted");
